@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto:wght@400;700&display=swap');
+
+:root{
+  --primary-color:#001C30;
+  --secondary-color:#176B87;
+  --text-color:#64CCC5;
+
+  --primary-font:"Dangrek", sans-serif
+}
+
+*{
+  font-family: var(--primary-font);
+  color: #64CCC5;
+
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: var(--secondary-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.game-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title{
+  font-size: 100px;
+}
+
+.game-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 5px;
+  margin-bottom: 41px;
+}
+
+.box{
+  width: 130px;
+  height: 130px;
+
+  background-color: var(--primary-color);
+}
+
+.box1{
+  border-top-left-radius: 20px;
+}
+.box3{
+  border-top-right-radius: 20px;
+}
+.box7{
+  border-bottom-left-radius: 20px;
+}
+.box9{
+  border-bottom-right-radius: 20px;
+}
+
+.start-button{
+  padding: 10px 30px;
+  border-radius: 20px;
+  background: #001C30;
+  
+  border: none;
+  background-color: var(--primary-color);
+
+  font-size: 30px;
+}
