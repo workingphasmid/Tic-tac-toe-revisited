@@ -16,6 +16,7 @@ const startButton = document.querySelector(".js-start-button");
 const playerTurnElement = document.querySelector(".player-turn");
 let running = false;
 let turn = "X";
+let playerWin = false;
 
 boxes.forEach((box, index) => {
   box.addEventListener("click", () => {
@@ -43,9 +44,11 @@ function updateTurn(box, index) {
     saveTurn(index);
     box.innerHTML = turn;
 
-    playerTurnElement.innerHTML = `${turn}'s turn`;
     checkWinner();
-    turn = turn === "X" ? "O" : "X";
+    if (!playerWin) {
+      turn = turn === "X" ? "O" : "X";
+      playerTurnElement.innerHTML = `${turn}'s turn`;
+    }
   }
 }
 
@@ -65,6 +68,7 @@ function checkWinner() {
     ) {
       playerTurnElement.innerHTML = `${turn} won`;
       running = false;
+      playerWin = true;
       return;
     }
   }
@@ -73,6 +77,7 @@ function checkWinner() {
 function resetGame() {
   turn = "X";
   running = false;
+  playerWin = false;
 
   grid = ["", "", "", "", "", "", "", "", ""];
   playerTurnElement.innerHTML = "";
